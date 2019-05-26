@@ -1,0 +1,4 @@
+bootstrap-4.3.1/node_modules
+.pyc
+.swp
+.DS_Store
