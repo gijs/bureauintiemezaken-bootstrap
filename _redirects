@@ -1,0 +1,7 @@
+# These rules will change if you change your site’s custom domains or HTTPS settings
+
+# Redirect domain aliases to primary domain
+https://www.bureau-intieme-zaken.nl/* https://www.bureauintiemezaken.nl/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://bureau-intieme-zaken.netlify.com/* https://www.bureauintiemezaken.nl/:splat 301!
