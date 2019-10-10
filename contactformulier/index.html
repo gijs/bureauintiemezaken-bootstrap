@@ -3,7 +3,7 @@
 	<head>
 
 		<html lang="nl-NL">
-		<title>Inschrijven | Bureau Intieme Zaken | Consulent Seksuele Gezondheid | Den Bosch</title>
+		<title>Contactformulier | Bureau Intieme Zaken | Consulent Seksuele Gezondheid | Den Bosch</title>
 
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -114,34 +114,26 @@
 
 
 
-    <div class="container mt-5 mb-5">
+    <div class="container mt-5 mb-5 pb-5">
 
 
 
       <div class="py-5 text-center">
           <img class="d-block mx-auto mb-4" src="../images/logo.svg" alt="" width="72" height="72">
-          <h2>Inschrijfformulier</h2>
-          <p class="lead">Met onderstaand formulier kunt u uzelf digitaal inschrijven bij Bureau Intieme Zaken.</p>
+          <h2>Contactformulier</h2>
+          <p class="lead">Met onderstaand formulier kun contact opnemen met Cornely van Bureau Intieme Zaken</p>
         </div>
 
       <div class="row">
         <div class="col-md-12 order-md-1">
           <h4 class="mb-3">Gegevens</h4>
-          <form class="needs-validation" method="POST" data-netlify="true" action="/bedankt/">
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="firstName">Voornaam</label>
-                <input type="text" class="form-control" name="voornaam" id="firstName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Voer a.u.b. uw voornaam in
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="lastName">Achternaam</label>
-                <input type="text" class="form-control" name="achternaam" id="lastName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Voer a.u.b. uw achternaam in
-                </div>
+          <form id="biz-inschrijfformulier" method="POST" data-netlify="true" action="/bedankt/">
+
+            <div class="mb-3">
+              <label for="address">Naam</label>
+              <input type="text" class="form-control" name="adres" id="address" placeholder="" required="">
+              <div class="invalid-feedback">
+                Voer a.j.b. een adres in
               </div>
             </div>
 
@@ -150,40 +142,16 @@
               <label for="email">E-mailadres</label>
               <input type="email" class="form-control" name="email" id="email" placeholder="bij@voorbeeld.com">
               <div class="invalid-feedback">
-                Voer a.u.b. een geldig e-mailadres in
+                Voer a.j.b. een geldig e-mailadres in
               </div>
             </div>
 
-            <div class="mb-3">
-              <label for="address">Adres</label>
-              <input type="text" class="form-control" name="adres" id="address" placeholder="" required="">
-              <div class="invalid-feedback">
-                Voer a.u.b. een adres in
-              </div>
-            </div>
+            <label for="exampleFormControlTextarea1">Je bericht:</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 
-
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="address">Postcode</label>
-                <input type="text" class="form-control" name="postcode" id="postcode" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Voer a.u.b. een postcode in
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="zip">Woonplaats</label>
-                <input type="text" class="form-control" name="woonplaats" id="woonplaats" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Voer a.u.b. een woonplaats in
-                </div>
-              </div>
-            </div>
-            <!-- <hr class="mb-4"> -->
-
-            <div class="custom-control custom-checkbox">
+            <div class="custom-control custom-checkbox pt-4">
               <input type="checkbox" class="custom-control-input" name="akkoord-met-voorwaarden" id="agree">
-              <label class="custom-control-label" for="same-address">Ik ga akkoord met de 
+              <label class="custom-control-label" for="agree">Ik ga akkoord met de 
                 <a style="color:#000;text-decoration:underline;" target="_blank" rel="noopener noreferrer" href="../downloads/Algemene_voorwaarden_Counseling.pdf">Algemene Voorwaarden</a> (pdf)
               </label>
             </div>
@@ -227,28 +195,18 @@
       </div>
     </div>
   
-
-    <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
-
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
+    <script type="text/javascript">
+      $(function () {
+          $("#biz-inschrijfformulier").on('submit', function (e) {
+              if (document.getElementById("agree").checked) {
+                  $("#biz-inschrijfformulier").submit();
+              } else {
+                  e.preventDefault();
+                  alert('Als je wil inschrijven moet je akkoord gaan met de Algemene Voorwaarden.');
               }
-              form.classList.add('was-validated');
-            }, false);
           });
-        }, false);
-      })();
-    </script>
+      });
+  </script>
+
   </body>
 </html>
